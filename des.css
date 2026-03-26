@@ -1,3 +1,4 @@
+/* Base Dark Mode Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -22,11 +23,11 @@ ol {
 }
 
 li {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.9);
     padding: 10px;
     border-radius: 10px;
     width: 200px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 li img {
@@ -56,16 +57,32 @@ button:hover {
     color: #00e676;
 }
 
-/* Disco Lights Animation */
-@keyframes disco {
+/* Disco Lights Keyframes */
+@keyframes discoBody {
     0% {background-color: #ff0000;}
-    20% {background-color: #00ff00;}
-    40% {background-color: #0000ff;}
-    60% {background-color: #ff00ff;}
-    80% {background-color: #00ffff;}
-    100% {background-color: #ffff00;}
+    16% {background-color: #00ff00;}
+    32% {background-color: #0000ff;}
+    48% {background-color: #ff00ff;}
+    64% {background-color: #00ffff;}
+    80% {background-color: #ffff00;}
+    100% {background-color: #ff0000;}
 }
 
+@keyframes discoItem {
+    0% {box-shadow: 0 0 10px #ff0000;}
+    16% {box-shadow: 0 0 10px #00ff00;}
+    32% {box-shadow: 0 0 10px #0000ff;}
+    48% {box-shadow: 0 0 10px #ff00ff;}
+    64% {box-shadow: 0 0 10px #00ffff;}
+    80% {box-shadow: 0 0 10px #ffff00;}
+    100% {box-shadow: 0 0 10px #ff0000;}
+}
+
+/* Party Mode Styles */
 .party-mode {
-    animation: disco 0.5s infinite;
+    animation: discoBody 1s infinite;
+}
+
+.party-mode ol li {
+    animation: discoItem 0.8s infinite alternate;
 }
