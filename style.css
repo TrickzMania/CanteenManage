@@ -1,0 +1,67 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Heading */
+h1 {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+/* Paragraph */
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* List styling */
+ol {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each item card */
+ol li {
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.3s;
+    cursor: pointer;
+}
+
+/* Hover effect */
+ol li:hover {
+    transform: scale(1.05);
+    background-color: #ffe66d;
+}
+
+/* Image styling */
+ol li img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Price text */
+ol li p:last-child {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Total display */
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
