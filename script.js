@@ -1,32 +1,22 @@
-// Select all list items
 const items = document.querySelectorAll("ol li");
 
-// Create total display
-const totalDisplay = document.createElement("h2");
-totalDisplay.textContent = "Total: Rs 0";
-document.body.appendChild(totalDisplay);
+// Food names list
+const foodNames = ["Chapati", "Porotta", "Mandhi", "Skittle", "Galaxy"];
 
-let total = 0;
+// Surprise button
+const surpriseBtn = document.getElementById("surpriseBtn");
 
-// Prices mapped by item name
-const prices = {
-    "Chapati": 20,
-    "Porotta": 25,
-    "Mandhi": 170,
-    "Skittle": 5,
-    "Galaxy": 45
-};
+surpriseBtn.addEventListener("click", () => {
+    // Remove old highlights
+    items.forEach(item => item.style.backgroundColor = "white");
 
-// Add click event to each item
-items.forEach(item => {
-    item.addEventListener("click", () => {
-        const name = item.querySelectorAll("p")[0].textContent;
-        const price = prices[name];
+    // Pick random item
+    const randomIndex = Math.floor(Math.random() * items.length);
+    const selectedItem = items[randomIndex];
 
-        total += price;
-        totalDisplay.textContent = "Total: Rs " + total;
+    // Highlight it
+    selectedItem.style.backgroundColor = "#c8e6c9";
 
-        // Highlight selected item
-        item.style.backgroundColor = "#d4edda";
-    });
+    // Show alert
+    alert("Try this today: " + foodNames[randomIndex] + " 😋");
 });
