@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll("ol li");
     const mysteryComboBtn = document.getElementById("mysteryComboBtn");
+    const comboSuggestion = document.getElementById("comboSuggestion");
 
-    // Prices dictionary matching your menu items
     const prices = {
         "Chapati": 20,
         "Porotta": 25,
@@ -11,16 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Galaxy": 45
     };
 
-    if (!mysteryComboBtn) {
-        console.log("Mystery Combo button not found!");
-        return;
-    }
-
     mysteryComboBtn.addEventListener("click", () => {
-        if (items.length < 2) {
-            alert("Not enough items for a combo!");
-            return;
-        }
+        if (items.length < 2) return;
 
         // Reset highlights
         items.forEach(item => item.style.backgroundColor = "white");
@@ -32,13 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             secondIndex = Math.floor(Math.random() * items.length);
         } while (secondIndex === firstIndex);
 
-        // Selected items
         const firstItem = items[firstIndex];
         const secondItem = items[secondIndex];
 
         // Highlight them
-        firstItem.style.backgroundColor = "#ffecb3";  // warm yellow highlight
-        secondItem.style.backgroundColor = "#ffe0b2"; // soft orange highlight
+        firstItem.style.backgroundColor = "#ffecb3";  // warm yellow
+        secondItem.style.backgroundColor = "#ffe0b2"; // soft orange
 
         // Get their names
         const firstName = firstItem.querySelector("p").textContent.trim();
@@ -47,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Calculate total price
         const totalPrice = prices[firstName] + prices[secondName];
 
-        // Show combo suggestion
-        alert(`How about trying this combo today?\n🍽️ ${firstName} + ${secondName}\nTotal Price: Rs ${totalPrice}/- Enjoy! 😋`);
+        // Show combo suggestion on page
+        comboSuggestion.textContent = `🍽️ Today's Mystery Combo: ${firstName} + ${secondName} | Total Price: Rs ${totalPrice}/- 😋`;
     });
 });
